@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import Download from "./components/Download";
+import Easy from "./components/Easy";
+import Food from "./components/Food";
+import Footer from "./components/Footer";
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
+import { useState, useRef } from "react";
 
 function App() {
+  const [isCartVisible, setIsCartVisible] = useState(false);
+  const refFood = useRef();
+  const refDownload = useRef();
+
+  const toggleCartVisibility = () => {
+    setIsCartVisible((prev) => !prev);
+  };
+
+  function handleScrollToSection(ref) {
+    console.log(ref);
+    let pos = ref.current.getBoundingClientRect().top;
+
+    window.scrollTo({
+      top: pos,
+      behavior: "smooth",
+    });
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar
+        toggleCartVisibility={toggleCartVisibility}
+        handleScrollToSection={handleScrollToSection}
+        refFood={refFood}
+        refDownload={refDownload}
+      />
+      <Hero />
+      <Food isCartVisible={isCartVisible} refFood={refFood} />
+      <Easy />
+      <Download refDownload={refDownload} />
+      <Footer />
     </div>
   );
 }
