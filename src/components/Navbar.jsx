@@ -16,7 +16,7 @@ const Navbar = ({
     setNav(!nav);
   };
   return (
-    <div className="text-black h-[80px] max-w-[1600px] mx-auto flex justify-between items-center">
+    <div className="fixed top-0 bg-white w-full z-10 text-black h-[80px] px-10  mx-auto flex justify-between items-center">
       <h1 className="text-xl md:text-3xl font-bold primary-color ml-4">
         quickDeli
       </h1>

@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import { useState, useRef } from "react";
+import Scroll from "./components/Scroll";
 
 function App() {
   const [isCartVisible, setIsCartVisible] = useState(false);
@@ -16,7 +17,6 @@ function App() {
   };
 
   function handleScrollToSection(ref) {
-    console.log(ref);
     let pos = ref.current.getBoundingClientRect().top;
 
     window.scrollTo({
@@ -33,6 +33,7 @@ function App() {
         refFood={refFood}
         refDownload={refDownload}
       />
+      <Scroll />
       <Hero />
       <Food isCartVisible={isCartVisible} refFood={refFood} />
       <Easy />

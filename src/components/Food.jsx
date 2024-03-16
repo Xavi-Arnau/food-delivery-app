@@ -100,8 +100,8 @@ const Food = ({ isCartVisible, refFood }) => {
                 <BsStarFill className="text-brightColor" />
                 <BsStarFill className="text-brightColor" />
                 <BsStarFill className="text-brightColor" />
-                <BsStarFill className="text-brightColor" />
-                <BsStarFill className="text-brightColor" />
+                <BsStarHalf className="text-brightColor" />
+                <BsStarHalf className="text-brightColor" />
               </div>
               <h3 className="font-semibold text-lg">${product.price}</h3>
               <button
